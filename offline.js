@@ -1,0 +1,30 @@
+﻿{
+	"version": 1715032009,
+	"fileList": [
+		"data.js",
+		"c2runtime.js",
+		"jquery-3.4.1.min.js",
+		"offlineClient.js",
+		"images/boton-sheet0.png",
+		"images/pipebottom-sheet0.png",
+		"images/pipetop-sheet0.png",
+		"images/mario-sheet0.png",
+		"images/background_scroll.png",
+		"images/background_scroll_night.png",
+		"images/menustart-sheet0.png",
+		"images/retry-sheet0.png",
+		"images/menugameover-sheet0.png",
+		"images/checkpoint-sheet0.png",
+		"images/tiledfloor.png",
+		"media/raccoon tail whip sfx.m4a",
+		"media/raccoon tail whip sfx.ogg",
+		"media/checkpoint.m4a",
+		"media/checkpoint.ogg",
+		"icon-16.png",
+		"icon-32.png",
+		"icon-114.png",
+		"icon-128.png",
+		"icon-256.png",
+		"loading-logo.png"
+	]
+}

@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1715063392,
+	"version": 1715064010,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -19,6 +19,7 @@
 		"images/gameovermenu-sheet0.png",
 		"images/homebtn-sheet0.png",
 		"images/fireworks.png",
+		"images/sprite-sheet0.png",
 		"media/checkpoint.m4a",
 		"media/checkpoint.ogg",
 		"media/gameover.m4a",

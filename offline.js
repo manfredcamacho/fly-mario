@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1715655168,
+	"version": 1716246520,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -36,6 +36,10 @@
 		"media/gameover.ogg",
 		"media/record_beated.m4a",
 		"media/record_beated.ogg",
+		"media/intro.m4a",
+		"media/intro.ogg",
+		"media/loop.m4a",
+		"media/loop.ogg",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",

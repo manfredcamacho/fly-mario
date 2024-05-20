@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>eGameOver</name>
+    <events>
+        <variable constant="0" name="newRecordFlag" sid="578421974510349" static="0" type="number">0</variable>
+        <event-block sid="992148401177758">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="105731099013454" type="System" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="620130906502561" type="background_scroll">
+                    <param id="0" name="X">background_x</param>
+                </action>
+                <action id="-1" name="Set X" sid="737878716030756" type="background_scroll_night">
+                    <param id="0" name="X">background_x</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="159673956260421" type="background_scroll_night">
+                    <param id="0" name="Opacity">background_opacity</param>
+                </action>
+                <action id="-9" name="Set value" sid="233846572818567" type="System">
+                    <param id="0" name="Variable">newRecordFlag</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="640460136504796">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="807975914097064" type="SpriteNumbers">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Score&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="635616227495437" type="SpriteNumbers">
+                            <param id="0" name="Text">score</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="498464829096933">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="587320147305108" type="SpriteNumbers">
+                            <param id="0" name="Instance variable">name</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;HI-Score&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="349136848193293">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="133149972951100" type="System">
+                                    <param id="0" name="Variable">score</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">HIScore</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set item" sid="645039801967976" type="LocalStorage">
+                                    <param id="0" name="Key">&quot;HI-SCORE&quot;</param>
+                                    <param id="1" name="Value">score</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="644339922624009" type="System">
+                                    <param id="0" name="Variable">HIScore</param>
+                                    <param id="1" name="Value">score</param>
+                                </action>
+                                <action id="0" name="Set text" sid="901933538208320" type="SpriteNumbers">
+                                    <param id="0" name="Text">score</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="307080848164601" type="System">
+                                    <param id="0" name="Variable">newRecordFlag</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="161528341822372">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="360952810449339" type="System">
+                                            <param id="0" name="Variable">sound</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="861185190161024" type="Audio">
+                                            <param id="0" name="Audio file">high_score</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-10</param>
+                                            <param id="1" name="Tag (optional)">&quot;highscore&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="815338718788283">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="280820659811320" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="301246315630009" type="SpriteNumbers">
+                                    <param id="0" name="Text">HIScore</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="412375491775168">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="820094492865689" type="System">
+                                            <param id="0" name="Variable">sound</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="758324139437005" type="Audio">
+                                            <param id="0" name="Audio file">gameover</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-10</param>
+                                            <param id="1" name="Tag (optional)">&quot;gameover&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="990241606429759">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="647438975899379" type="System">
+                    <param id="0" name="Interval (seconds)">0.5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="285579892566482" type="System">
+                    <param id="0" name="Variable">newRecordFlag</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="865241690805622" type="System">
+                    <param id="0" name="Object to create">Fireworks</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">random(50, 350)</param>
+                    <param id="3" name="Y">random(50, 450)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="776632835770251">
+            <conditions>
+                <condition id="3" name="On touched object" sid="634277390262666" type="Touch">
+                    <param id="0" name="Object">RetryBtn</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="691033624187468" type="Audio">
+                    <param id="0" name="Tag">&quot;highscore&quot;</param>
+                </action>
+                <action id="6" name="Stop" sid="268557214179426" type="Audio">
+                    <param id="0" name="Tag">&quot;gameover&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="873971223989957" type="System">
+                    <param id="0" name="Layout">Game</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="699716003875983">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="843041464299355" type="System">
+                            <param id="0" name="Variable">sound</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="898891462049180" type="Audio">
+                            <param id="0" name="Audio file">button</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block any="1" sid="908771095853684">
+            <conditions>
+                <condition id="3" name="On touched object" sid="849059683277480" type="Touch">
+                    <param id="0" name="Object">HomeBtn</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="369292001531381" type="Audio">
+                    <param id="0" name="Tag">&quot;highscore&quot;</param>
+                </action>
+                <action id="6" name="Stop" sid="518956320777941" type="Audio">
+                    <param id="0" name="Tag">&quot;gameover&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="294134750264921" type="System">
+                    <param id="0" name="Layout">Start</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="586076256773979">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="462590783051355" type="System">
+                            <param id="0" name="Variable">sound</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="720358918428686" type="Audio">
+                            <param id="0" name="Audio file">button</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

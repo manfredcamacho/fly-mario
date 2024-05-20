@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Fly Mario</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>3i94hlgrq51ua</unique-id>
+    <saved-with-version>28000</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+    </used-behaviors>
+    <used-effects>
+        <effect author="Scirra" id="hsladjust">Adjust HSL</effect>
+    </used-effects>
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>400</width>
+        <height>500</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="StartBtn" sid="603794453308042">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="919069175884330" speed="5">
+                    <frame duration="1" hotspotX="0.503401" hotspotY="0.5" original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\Start.png">
+                        <collision-poly>
+                            <point x="0.0204082" y="0.0555556" />
+                            <point x="0.496599" y="0" />
+                            <point x="0.965986" y="0.0925926" />
+                            <point x="1" y="0.5" />
+                            <point x="0.979592" y="0.944444" />
+                            <point x="0.496599" y="1" />
+                            <point x="0.0340136" y="0.907407" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="pipeBottom" sid="840923470351812">
+            <plugin id="Sprite" />
+            <effects>
+                <effect-type name="AdjustHSL">
+                    <effect id="hsladjust" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="691091838463023" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\pipeBottom.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="0.971429" y="0.5" />
+                            <point x="0.971429" y="0.996689" />
+                            <point x="0.0285714" y="0.996689" />
+                            <point x="0.0285714" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="pipeTop" sid="129631221253263">
+            <plugin id="Sprite" />
+            <effects>
+                <effect-type name="AdjustHSL">
+                    <effect id="hsladjust" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="902603161294343" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\pipeTop.png">
+                        <collision-poly>
+                            <point x="0.0285714" y="0.00331126" />
+                            <point x="0.971429" y="0.00331126" />
+                            <point x="0.971429" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0.0285714" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="mario" sid="496307550615758">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Platform" sid="321875910734737">
+                    <behavior id="Platform" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="736827261879743" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\mario\mario0.png">
+                        <collision-poly>
+                            <point x="0.361111" y="0.325" />
+                            <point x="0.5" y="0" />
+                            <point x="0.833333" y="0.15" />
+                            <point x="0.833333" y="0.85" />
+                            <point x="0.5" y="0.95" />
+                            <point x="0.138889" y="0.875" />
+                            <point x="0.444444" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="8" loop="0" name="Fly" pingpong="0" repeatcount="1" repeatto="0" sid="345025689992449" speed="20">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\mario\mario0.png">
+                        <collision-poly>
+                            <point x="0.361111" y="0.325" />
+                            <point x="0.5" y="0" />
+                            <point x="0.833333" y="0.15" />
+                            <point x="0.833333" y="0.85" />
+                            <point x="0.5" y="0.95" />
+                            <point x="0.138889" y="0.875" />
+                            <point x="0.444444" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\mario\mario1.png">
+                        <collision-poly>
+                            <point x="0.361111" y="0.325" />
+                            <point x="0.5" y="0" />
+                            <point x="0.833333" y="0.15" />
+                            <point x="0.833333" y="0.85" />
+                            <point x="0.5" y="0.95" />
+                            <point x="0.111111" y="0.9" />
+                            <point x="0.444444" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\mario\mario2.png">
+                        <collision-poly>
+                            <point x="0.361111" y="0.325" />
+                            <point x="0.5" y="0" />
+                            <point x="0.833333" y="0.15" />
+                            <point x="0.833333" y="0.85" />
+                            <point x="0.5" y="0.95" />
+                            <point x="0.138889" y="0.875" />
+                            <point x="0.444444" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Manny\Documents\Tec Desarrollo Software Simulacion\2024 - 1C\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\mario\mario3.png">
+                        <collision-poly>
+                            <point x="0.361111" y="0.325" />
+                            <point x="0.5" y="0" />
+                            <point x="0.833333" y="0.15" />
+                            <point x="0.833333" y="0.85" />
+                            <point x="0.5" y="0.95" />
+                            <point x="0.25" y="0.775" />
+                            <point x="0.444444" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.361111" y="0.325" />
+                            <point x="0.5" y="0" />
+                            <point x="0.833333" y="0.15" />
+                            <point x="0.833333" y="0.85" />
+                            <point x="0.5" y="0.95" />
+                            <point x="0.138889" y="0.875" />
+                            <point x="0.444444" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.361111" y="0.325" />
+                            <point x="0.5" y="0" />
+                            <point x="0.833333" y="0.15" />
+                            <point x="0.833333" y="0.85" />
+                            <point x="0.5" y="0.95" />
+                            <point x="0.111111" y="0.9" />
+                            <point x="0.444444" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.361111" y="0.325" />
+                            <point x="0.5" y="0" />
+                            <point x="0.833333" y="0.15" />
+                            <point x="0.833333" y="0.85" />
+                            <point x="0.5" y="0.95" />
+                            <point x="0.138889" y="0.875" />
+                            <point x="0.444444" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.361111" y="0.325" />
+                            <point x="0.5" y="0" />
+                            <point x="0.833333" y="0.15" />
+                            <point x="0.833333" y="0.85" />
+                            <point x="0.5" y="0.95" />
+                            <point x="0.25" y="0.775" />
+                            <point x="0.444444" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Audio" sid="410615055675359">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="background_scroll" sid="712388542007617">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\background_scroll.png" />
+        </object-type>
+        <object-type name="background_scroll_night" sid="966199211291091">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\background_scroll_night.png" />
+        </object-type>
+        <object-type name="RetryBtn" sid="395389546680430">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="686834209033344" speed="5">
+                    <frame duration="1" hotspotX="0.503401" hotspotY="0.5" original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\Retry.png">
+                        <collision-poly>
+                            <point x="0.0204082" y="0.0555556" />
+                            <point x="0.496599" y="0" />
+                            <point x="0.965986" y="0.0925926" />
+                            <point x="1" y="0.5" />
+                            <point x="0.979592" y="0.944444" />
+                            <point x="0.496599" y="1" />
+                            <point x="0.0340136" y="0.907407" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="LocalStorage" sid="647757788626003">
+            <plugin id="LocalStorage" />
+        </object-type>
+        <object-type name="Checkpoint" sid="207008002851419">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="134180268895505" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SpriteNumbers" sid="976585826608264">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="name" sid="314871102600825" type="string" />
+            </instance-variables>
+            <texture original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\Numbers.png" />
+        </object-type>
+        <object-type name="StartMenu" sid="822453284530130">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="558896257739980" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Manny\Documents\Tec Desarrollo Software Simulacion\2024 - 1C\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\MenuStart.png">
+                        <collision-poly>
+                            <point x="0.0575" y="0.046" />
+                            <point x="0.5" y="0.034" />
+                            <point x="0.8625" y="0.11" />
+                            <point x="0.615" y="0.5" />
+                            <point x="0.545" y="0.636" />
+                            <point x="0.5" y="0.648" />
+                            <point x="0.0575" y="0.954" />
+                            <point x="0.245" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="GameOverMenu" sid="460187204369525">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="457356276519865" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\Gameover.png">
+                        <collision-poly>
+                            <point x="0.12" y="0.096" />
+                            <point x="0.8775" y="0.098" />
+                            <point x="0.5175" y="0.614" />
+                            <point x="0.5" y="0.616" />
+                            <point x="0.4825" y="0.614" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="HomeBtn" sid="975557154042342">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="218561350960667" speed="5">
+                    <frame duration="1" hotspotX="0.503401" hotspotY="0.5" original-source="D:\Manny\Desktop\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\Home.png">
+                        <collision-poly>
+                            <point x="0.0204082" y="0.0555556" />
+                            <point x="0.496599" y="0" />
+                            <point x="0.965986" y="0.0925926" />
+                            <point x="1" y="0.5" />
+                            <point x="0.979592" y="0.944444" />
+                            <point x="0.496599" y="1" />
+                            <point x="0.0340136" y="0.907407" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Touch" sid="189828871158686">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="Fireworks" sid="546776149405686">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="sound" sid="916063392876347">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="ON" pingpong="0" repeatcount="1" repeatto="0" sid="356021047451910" speed="5">
+                    <frame duration="1" hotspotX="0.512821" hotspotY="0.5" original-source="D:\Manny\Documents\Tec Desarrollo Software Simulacion\2024 - 1C\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\soundON.png">
+                        <collision-poly>
+                            <point x="0.0204082" y="0.0555556" />
+                            <point x="0.496599" y="0" />
+                            <point x="0.965986" y="0.0925926" />
+                            <point x="1" y="0.5" />
+                            <point x="0.979592" y="0.944444" />
+                            <point x="0.496599" y="1" />
+                            <point x="0.0340136" y="0.907407" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="OFF" pingpong="0" repeatcount="1" repeatto="0" sid="358544888798848" speed="5">
+                    <frame duration="1" hotspotX="0.512821" hotspotY="0.5" original-source="D:\Manny\Documents\Tec Desarrollo Software Simulacion\2024 - 1C\Desarrollo Simuladores 2D\Flappy Mario\Mario Sprites\SoundOff.png">
+                        <collision-poly>
+                            <point x="0.0769231" y="0.0789474" />
+                            <point x="0.487179" y="0" />
+                            <point x="0.871795" y="0.131579" />
+                            <point x="1" y="0.5" />
+                            <point x="0.923077" y="0.921053" />
+                            <point x="0.487179" y="1" />
+                            <point x="0.128205" y="0.868421" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Start.xml</layout>
+        <layout>Game.xml</layout>
+        <layout>GameOver.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>eStart.xml</event-sheet>
+        <event-sheet>eGame.xml</event-sheet>
+        <event-sheet>eGameOver.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Audio" uid="10">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="LocalStorage" uid="16" />
+        <global-instance type="Touch" uid="26">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+    </global-instances>
+    <sounds-folder>
+        <file name="checkpoint.m4a" />
+        <file name="checkpoint.ogg" />
+        <file name="jump.m4a" />
+        <file name="jump.ogg" />
+        <file name="button.m4a" />
+        <file name="button.ogg" />
+        <file name="high_score.m4a" />
+        <file name="high_score.ogg" />
+        <file name="start.m4a" />
+        <file name="start.ogg" />
+        <file name="gameover.m4a" />
+        <file name="gameover.ogg" />
+        <file name="record_beated.m4a" />
+        <file name="record_beated.ogg" />
+        <file name="intro.m4a" />
+        <file name="intro.ogg" />
+        <file name="loop.m4a" />
+        <file name="loop.ogg" />
+    </sounds-folder>
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

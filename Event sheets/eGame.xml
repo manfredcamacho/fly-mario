@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>eGame</name>
+    <events>
+        <variable constant="0" name="tubesDistance" sid="744934439606055" static="0" type="number">900</variable>
+        <variable constant="0" name="isDead" sid="141568338268642" static="0" type="number">0</variable>
+        <variable constant="0" name="pipesCreated" sid="257004974585118" static="0" type="number">0</variable>
+        <variable constant="0" name="SecondsPerObstacle" sid="341063176756454" static="0" type="number">1.5</variable>
+        <variable constant="0" name="clock" sid="554013006075486" static="0" type="number">0</variable>
+        <variable comment="1.5 px * 120 hz = 180" constant="0" name="velocity" sid="763682871786258" static="0" type="number">180</variable>
+        <variable constant="0" name="score" sid="864988780754618" static="0" type="number">0</variable>
+        <event-group description="" sid="369620161590679" title="Setup">
+            <sub-events>
+                <event-block sid="146535725308943">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="302139411343697" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="140468511103747" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="495469422935984" type="System">
+                            <param id="0" name="Variable">clock</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="806397329247003" type="System">
+                            <param id="0" name="Variable">pipesCreated</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="720989315482052" type="System">
+                            <param id="0" name="Variable">SecondsPerObstacle</param>
+                            <param id="1" name="Value">1.5</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="517047612920455" type="System">
+                            <param id="0" name="Variable">isDead</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="742075796264883" type="pipeBottom" />
+                        <action id="-9" name="Destroy" sid="639991575068551" type="pipeTop" />
+                        <action id="-9" name="Destroy" sid="349142386842111" type="Checkpoint" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="255294387991994">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="264493699751843" type="System">
+                                    <param id="0" name="Variable">sound</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="694917269021192" type="Audio">
+                                    <param id="0" name="Audio file">intro</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;intro&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="226837093371834">
+                    <conditions>
+                        <condition id="0" name="On ended" sid="410612245586118" type="Audio">
+                            <param id="0" name="Tag">&quot;intro&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="852884773392916" type="System">
+                            <param id="0" name="Variable">isDead</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="284978350820609" type="Audio">
+                            <param id="0" name="Audio file">loop</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;loop&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="677932305278588" title="UI">
+            <sub-events>
+                <event-block sid="804887330332798">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="835906567904901" type="background_scroll">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">-512</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="432365646484576" type="background_scroll">
+                            <param id="0" name="X">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="858127709671166">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="620526796970906" type="background_scroll_night">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">-512</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="980704102367146" type="background_scroll_night">
+                            <param id="0" name="X">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="230269965184252">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="217335469037416" type="pipeBottom">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">-55</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="608945683481232" type="pipeBottom" />
+                    </actions>
+                </event-block>
+                <event-block sid="458565359653619">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="841826947470292" type="pipeTop">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">-55</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="217876536123105" type="pipeTop" />
+                    </actions>
+                </event-block>
+                <event-block sid="388205752172026">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="418387005100053" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="755164485088707" type="System">
+                            <param id="0" name="Variable">background_x</param>
+                            <param id="1" name="Value">background_scroll.X - 0.5 * 120 * dt</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="228715610731061" type="System">
+                            <param id="0" name="Variable">background_opacity</param>
+                            <param id="1" name="Value">abs(sin(clock)*100)</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="485824089829194" type="background_scroll_night">
+                            <param id="0" name="X">background_x</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="302976472613303" type="background_scroll">
+                            <param id="0" name="X">background_x</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="369836714925769" type="System">
+                            <param id="0" name="Variable">clock</param>
+                            <param id="1" name="Value">clock+0.05 * 120 * dt</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="892507462598487" type="background_scroll_night">
+                            <param id="0" name="Opacity">background_opacity</param>
+                        </action>
+                        <action id="0" name="Set text" sid="473027441519676" type="SpriteNumbers">
+                            <param id="0" name="Text">score</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="620225867837139" title="Gameplay">
+            <sub-events>
+                <event-block sid="384942875280670">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="342799731329736" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="712860650357741" type="pipeTop">
+                            <param id="0" name="X">pipeTop.X - velocity * dt</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="463934512195622" type="pipeBottom">
+                            <param id="0" name="X">pipeBottom.X - velocity * dt</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="424414282643881" type="Checkpoint">
+                            <param id="0" name="X">Checkpoint.X - velocity * dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="420597636170133">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="997033378170180" type="System">
+                            <param id="0" name="Interval (seconds)">SecondsPerObstacle</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="420426720027475" type="System">
+                            <param id="0" name="Object to create">pipeTop</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">400</param>
+                            <param id="3" name="Y">random(-150,-250)</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="413943303015054" type="System">
+                            <param id="0" name="Object to create">pipeBottom</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">400</param>
+                            <param id="3" name="Y">pipeTop.Y + tubesDistance</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="404156417180353" type="System">
+                            <param id="0" name="Object to create">Checkpoint</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">430</param>
+                            <param id="3" name="Y">250</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="141830318767223" type="System">
+                            <param id="0" name="Variable">pipesCreated</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="718276188584185">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="732855751796646" type="System">
+                                    <param id="0" name="Variable">pipesCreated</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">HIScore + 1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="410236281262762" type="pipeBottom">
+                                    <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">75</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="977151463492563" type="pipeTop">
+                                    <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">75</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="988206611059469">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="135133403915007" type="System">
+                            <param id="0" name="First value">score % 10</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="839084158569301" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="393549329370028" type="System">
+                            <param id="0" name="Variable">SecondsPerObstacle</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">0.5</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="849824951502311" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="933344363393731" type="System">
+                            <param id="0" name="Variable">SecondsPerObstacle</param>
+                            <param id="1" name="Value">0.1</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="766169781969006" type="System">
+                            <param id="0" name="Variable">tubesDistance</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="345138650154010">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="176011455249310" type="System">
+                            <param id="0" name="First value">score % 10</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="853761231853554" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="298025859616039" type="System">
+                            <param id="0" name="Variable">tubesDistance</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">720</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="303929158611754" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="939472255234275" type="System">
+                            <param id="0" name="Variable">tubesDistance</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="218912961395345">
+                    <conditions>
+                        <condition id="0" name="On any touch start" sid="100853889746628" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="128341482732919" type="mario">
+                            <param id="0" name="Vector Y">-500</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="135177063717446" type="mario">
+                            <param id="0" name="Angle">340</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="649615876964752" type="mario">
+                            <param id="0" name="Animation">&quot;Fly&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="382572977789224">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="957915286883494" type="System">
+                                    <param id="0" name="Variable">sound</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="829424989403655" type="Audio">
+                                    <param id="0" name="Audio file">jump</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="254845337688441" title="Mario">
+            <sub-events>
+                <event-block any="1" sid="608725760278194">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="149894166433681" type="mario">
+                            <param id="0" name="Object">pipeTop</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="677442048661854" type="mario">
+                            <param id="0" name="Object">pipeBottom</param>
+                        </condition>
+                        <condition id="-4" name="Is outside layout" sid="801060491890203" type="mario" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="671993984199843" type="System">
+                            <param id="0" name="Variable">isDead</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="6" name="Stop" sid="500597165422541" type="Audio">
+                            <param id="0" name="Tag">&quot;intro&quot;</param>
+                        </action>
+                        <action id="6" name="Stop" sid="452153191590909" type="Audio">
+                            <param id="0" name="Tag">&quot;loop&quot;</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="957704112986094" type="System">
+                            <param id="0" name="Layout">GameOver</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="393302728066984">
+                    <conditions>
+                        <condition id="-13" name="Is between angles" sid="583773011895626" type="mario">
+                            <param id="0" name="First angle">340</param>
+                            <param id="1" name="Second angle">360</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="553345441681323" type="mario">
+                            <param id="0" name="Angle">mario.Angle+1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="432565666777305">
+                    <conditions>
+                        <condition id="-13" name="Is between angles" sid="522195004870086" type="mario">
+                            <param id="0" name="First angle">0</param>
+                            <param id="1" name="Second angle">90</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="114998230992014" type="mario">
+                            <param id="0" name="Angle">mario.Angle+0.1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="587230007844970">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="260298091263425" type="mario">
+                            <param id="0" name="Object">Checkpoint</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="150262567357332" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="667480314580181" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Value">score + 1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="241375758214727">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="881064778895968" type="System">
+                                    <param id="0" name="Variable">sound</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="943472732908586">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="790328874873227" type="System">
+                                            <param id="0" name="Variable">score</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">HIScore + 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="319603210046516" type="Audio">
+                                            <param id="0" name="Audio file">record_beated</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-10</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="865857167383836">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="320321623301680" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="793959063019790" type="Audio">
+                                            <param id="0" name="Audio file">checkpoint</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-10</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
